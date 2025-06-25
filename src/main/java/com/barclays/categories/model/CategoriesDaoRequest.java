@@ -1,13 +1,9 @@
 package com.barclays.categories.model;
 
-public class CategoriesRequest {
-	
+public class CategoriesDaoRequest {
+
 	private String cardNum;
 	private String clientId;
 	private String channelId;
-	private String reqId;
-	private String msgTs;
 	
-	
-
 }

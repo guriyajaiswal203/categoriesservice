@@ -1,6 +1,6 @@
 package com.barclays.categories.model;
 
-public class CategoriesRequest {
+public class CardServiceClientReq {
 	
 	private String cardNum;
 	private String clientId;
