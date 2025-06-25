@@ -10,8 +10,16 @@ public class CardVerifyServiceClientImpl implements ICardVerifyServiceClient {
 
 	@Override
 	public CardServiceClientRes cardVerify(CardServiceClientReq request) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		// TODO : write the rest client code to call card verify service
+		
+		CardServiceClientRes cardServiceClientResp = new CardServiceClientRes(); 
+		
+		cardServiceClientResp.setRespCode("0");
+		cardServiceClientResp.setRespMsg("success");
+		cardServiceClientResp.setStatus("active");
+		
+		return cardServiceClientResp;
 	}
 
 }
