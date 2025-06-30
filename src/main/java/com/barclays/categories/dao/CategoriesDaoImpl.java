@@ -29,42 +29,44 @@ public class CategoriesDaoImpl implements  ICategoriesDao {
 		CategoriesDao  categoriesDao1 = new CategoriesDao();		
 			categoriesDao1.setId("111");
 			categoriesDao1.setName("Electronics");
-			categoriesDao1.setDesc("good");
-			categoriesDao1.setExpDate("31/12/2025");
 			categoriesDao1.setType("cat001");
 			categoriesDao1.setStatus("active");
+			categoriesDao1.setExpDate("31/12/2025");
+			categoriesDao1.setDesc("good");
+		
 
 		CategoriesDao  categoriesDao2 = new CategoriesDao();		
 			categoriesDao2.setId("222");
 			categoriesDao2.setName("lifestyle");
-			categoriesDao2.setDesc("good");
-			categoriesDao2.setExpDate("31/12/2025");
 			categoriesDao2.setType("cat002");
-			categoriesDao2.setStatus("active");				
+			categoriesDao2.setStatus("active");
+			categoriesDao2.setExpDate("31/12/2025");
+			categoriesDao2.setDesc("good");
+						
 
 		CategoriesDao  categoriesDao3 = new CategoriesDao();		
 			categoriesDao3.setId("333");
-			categoriesDao3.setName("Entertainment");
-			categoriesDao3.setDesc("good");
-			categoriesDao3.setExpDate("31/12/2025");
+			categoriesDao3.setName("Entertainment");			
 			categoriesDao3.setType("cat003");
 			categoriesDao3.setStatus("active");
+			categoriesDao3.setExpDate("31/12/2025");
+			categoriesDao3.setDesc("good");
 
 		CategoriesDao  categoriesDao4 = new CategoriesDao();		
 			categoriesDao4.setId("444");
-			categoriesDao4.setName("jewel");
-			categoriesDao4.setDesc("good");
-			categoriesDao4.setExpDate("31/12/2025");
+			categoriesDao4.setName("jewel");			 
 			categoriesDao4.setType("cat004");
-			categoriesDao4.setStatus("active");			
+			categoriesDao4.setStatus("active");	
+			categoriesDao4.setExpDate("31/12/2025");
+			categoriesDao4.setDesc("good");
 
 		CategoriesDao  categoriesDao5 = new CategoriesDao();		
 			categoriesDao5.setId("555");
-			categoriesDao5.setName("travel");
-			categoriesDao5.setDesc("good");
-			categoriesDao5.setExpDate("31/12/2025");
+			categoriesDao5.setName("travel");			
 			categoriesDao5.setType("cat005");
 			categoriesDao5.setStatus("active");
+			categoriesDao5.setExpDate("31/12/2025");
+			categoriesDao5.setDesc("good");
 			
 			categoriesDaoList.add(categoriesDao1);	
 			categoriesDaoList.add(categoriesDao2);

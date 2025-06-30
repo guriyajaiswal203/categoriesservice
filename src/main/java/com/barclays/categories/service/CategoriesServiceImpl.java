@@ -34,37 +34,39 @@ public class CategoriesServiceImpl implements ICategoriesService {
 		    CardServiceClientReq request = new CardServiceClientReq();
 		    request.setCardNum(categoriesReq.getCardNum());
 		    request.setClientId(categoriesReq.getClientId());		   
-		    request.setReqId(categoriesReq.getReqId());
+		    request.setReqId(categoriesReq.getReqId()); 
 		    request.setMsgTs(categoriesReq.getMsgTs());
 		
 	    // 3. call cardVerifyService
 		    CardServiceClientRes cardVerifyResp = cardVerifySvcClient.cardVerify(request);
 		    
 	   // 4. apply the business logic on cardVerifyResp
-		    CategoriesDaoResponse categoriesDaoResp = null;		    
-		    if("".equals(cardVerifyResp.getStatus())) {		    
+		    
+		    CategoriesDaoResponse categoriesdaoResp = null;	
+		    
+		    if("active".equals(cardVerifyResp.getStatus())) {		    
 	        // 5. prepare the request for integration layer - 2. categories dao		    
 		    CategoriesDaoRequest categoriesDaoReq = new CategoriesDaoRequest();
 		    categoriesDaoReq.setCardNum(categoriesReq.getCardNum());
 		    categoriesDaoReq.setClientId(categoriesReq.getClientId());
 		    
 	  // 6. call dao and get the response 
-		    categoriesDaoResp = categoriesDao.getCategories(categoriesDaoReq);		    
+		  categoriesdaoResp = categoriesDao.getCategories(categoriesDaoReq);		    
 		    }
 		    
 	 // 7. prepare  the categories response - with the help of service client and dao		    
 		    CategoriesResponse categoriesResp = new CategoriesResponse();
 		    
 		    StatusBlock statusBlock = new StatusBlock();
-		    statusBlock.setRespCode(categoriesDaoResp.getDbrespCode());
-		    statusBlock.setRespMsg(categoriesDaoResp.getDbrespMsg());	
+		    statusBlock.setRespCode(categoriesdaoResp.getDbrespCode());
+		    statusBlock.setRespMsg(categoriesdaoResp.getDbrespMsg());	
 		    
 		    categoriesResp.setStatus(statusBlock);	
 		   
 		    List<Categories> categoriesList = new ArrayList<Categories>();
 		    
 		    //get the list of categories from dao  and assign  to service categories
-		    for(CategoriesDao catDao : categoriesDaoResp.getCategoriesDao() ) {
+		    for(CategoriesDao catDao : categoriesdaoResp.getCategoriesDao() ) {
 		    	
 		    	Categories categories = new Categories();
 		    	categories.setId(catDao.getId());
