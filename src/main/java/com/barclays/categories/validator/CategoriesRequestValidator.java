@@ -17,6 +17,20 @@ public class CategoriesRequestValidator {
 			throw new CategoriesRequestInvalidException("cat001","Invalid request object");
 		}
 		
+		if(categoriesReq.getCardNum() == null || " ".equals(categoriesReq.getCardNum()) || 
+				categoriesReq.getCardNum().length() < 16) {
+			throw new CategoriesRequestInvalidException("cat002", "invalid card number");
+		}
+		
+		if(categoriesReq.getClientId() == null || " ".equals(categoriesReq.getClientId())){
+			throw new CategoriesRequestInvalidException("cat003", "invalid client Id");
+		}
+		
+		if(categoriesReq.getChannelId() == null || " ".equals(categoriesReq.getChannelId())){
+			throw new CategoriesRequestInvalidException("cat004", "invalid channel Id");
+		}
+		
+		
 	}
 
 	

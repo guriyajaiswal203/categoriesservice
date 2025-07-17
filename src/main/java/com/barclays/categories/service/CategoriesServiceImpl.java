@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.barclays.categories.dao.ICategoriesDao;
+import com.barclays.categories.exception.BusinessException;
+import com.barclays.categories.exception.SystemException;
 import com.barclays.categories.model.CardServiceClientReq;
 import com.barclays.categories.model.CardServiceClientRes;
 import com.barclays.categories.model.Categories;
@@ -27,7 +29,9 @@ public class CategoriesServiceImpl implements ICategoriesService {
 	ICategoriesDao categoriesDao;
 
 	@Override
-	public CategoriesResponse getCategories(CategoriesRequest categoriesReq) {
+	public CategoriesResponse getCategories(CategoriesRequest categoriesReq) throws BusinessException, SystemException {
+		
+		System.out.println("Entered into service");
 		
 		// 1. get the request from controller
 	    // 2. prepare the request for integration layer - 1 cardVerifyService
@@ -80,7 +84,9 @@ public class CategoriesServiceImpl implements ICategoriesService {
 		    }	
 		    
 		    		    
-		    categoriesResp.setCategories(categoriesList);    
+		    categoriesResp.setCategories(categoriesList);
+		    
+		    System.out.println("Exit from service");
 		
 		    return  categoriesResp;
 	}
