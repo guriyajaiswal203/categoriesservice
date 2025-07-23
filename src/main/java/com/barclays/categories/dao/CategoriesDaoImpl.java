@@ -10,6 +10,8 @@ import com.barclays.categories.exception.SystemException;
 import com.barclays.categories.model.CategoriesDao;
 import com.barclays.categories.model.CategoriesDaoRequest;
 import com.barclays.categories.model.CategoriesDaoResponse;
+import com.barclays.categories.util.CategoriesConstant;
+import com.barclays.categories.util.CategoriesErrorEnum;
 
 @Component
 public class CategoriesDaoImpl implements  ICategoriesDao {
@@ -29,7 +31,7 @@ public class CategoriesDaoImpl implements  ICategoriesDao {
 			String dbRespCode="102";
 			String dbRespMsg="database timeout";
 			
-			if("0".equals(dbRespCode)) {
+			if(CategoriesConstant.ZERO.equals(dbRespCode)) {
 				
 			
 			daoResp.setDbrespCode("dbRespCode");
@@ -42,7 +44,7 @@ public class CategoriesDaoImpl implements  ICategoriesDao {
 				categoriesDao1.setName("Electronics");
 				categoriesDao1.setType("cat001");
 				categoriesDao1.setStatus("active");
-				categoriesDao1.setExpDate("31/12/2025");
+				categoriesDao1.setExpDate("31/12/2025");       
 				categoriesDao1.setDesc("good");
 			
 
@@ -88,11 +90,11 @@ public class CategoriesDaoImpl implements  ICategoriesDao {
 				
 			
 			daoResp.setCategoriesDao(categoriesDaoList);
-			}else if("100".equals(dbRespCode) ||"101".equals(dbRespCode)|| "102".equals(dbRespCode) ) {
+			}else if(CategoriesErrorEnum.checkErrorCode(dbRespCode, CategoriesConstant.DATA_ERROR) ) {
 				throw new BusinessException(dbRespCode, dbRespMsg);
 			}
 			
-			else if("333".equals(dbRespCode) ||"444".equals(dbRespCode)|| "555".equals(dbRespCode) ) {
+			else if(CategoriesErrorEnum.checkErrorCode(dbRespCode, CategoriesConstant.SYSTEM_EROR) ) {
 				throw new SystemException(dbRespCode, dbRespMsg);
 			}
 		} catch (BusinessException be) {			
